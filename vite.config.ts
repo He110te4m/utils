@@ -2,30 +2,68 @@
 
 import { basename, join, relative, resolve } from 'path'
 import { readdirSync, statSync } from 'fs'
-import { defineConfig } from 'vite'
+import { type PluginOption, defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
+import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 
 const tsSuffix = '.ts'
 
-export default defineConfig({
-  build: {
-    emptyOutDir: false,
-    outDir: 'dist',
-    sourcemap: true,
-    lib: {
-      formats: ['cjs', 'es'],
-      entry: getEntries(),
-    },
-  },
-  test: {
-    coverage: {
-      provider: 'c8',
-      reporter: ['json', 'html'],
-      reportsDirectory: 'coverages',
-      include: [
-        'src/**/*.ts',
+export default defineConfig(({ mode }) => {
+  const isProd = mode === 'prod'
+
+  const plugins: PluginOption[] = []
+
+  if (isProd) {
+    plugins.push(
+      dts({}),
+      chunkSplitPlugin({
+        strategy: 'single-vendor',
+        customChunk: ({ file }) => {
+          if (file.startsWith('src')) {
+            return file.slice(4).replace(/\.[^.$]+$/, '')
+          }
+          return null
+        },
+      }),
+    )
+  }
+
+  return {
+    plugins,
+    resolve: {
+      alias: [
+        {
+          find: '@he110/utils',
+          replacement: resolve(__dirname, 'src'),
+        },
       ],
     },
-  },
+    build: {
+      emptyOutDir: false,
+      outDir: 'dist',
+      sourcemap: true,
+      lib: {
+        formats: ['cjs', 'es'],
+        entry: getEntries(),
+      },
+      rollupOptions: {
+        output: {
+          chunkFileNames: '[name].js',
+          assetFileNames: '[name].[ext]',
+        },
+      },
+    },
+    test: {
+      coverage: {
+        provider: 'c8',
+        reporter: ['json', 'html'],
+        reportsDirectory: 'coverages',
+        include: [
+          'src/**/*.ts',
+        ],
+      },
+    },
+  }
 })
 
 /**
