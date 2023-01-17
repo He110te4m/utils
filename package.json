@@ -1,0 +1,45 @@
+{
+  "name": "@he110/utils",
+  "version": "0.0.0",
+  "description": "",
+  "exports": {
+    "./convertor": {
+      "import": "./dist/convertor.js",
+      "require": "./dist/convertor.cjs"
+    },
+    "./logger": {
+      "import": "./dist/convertor.js",
+      "require": "./dist/convertor.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "clean:dist": "rimraf dist/",
+    "build:types": "tsc --declarationDir dist/ --emitDeclarationOnly --declaration",
+    "build:lib": "vite build",
+    "build": "npm run clean:dist && npm run build:lib && npm run build:types",
+    "release-major": "standard-version --release-as major && git push --follow-tags origin master && npm publish",
+    "release-minor": "standard-version --release-as minor && git push --follow-tags origin master && npm publish",
+    "release-patch": "standard-version --release-as patch && git push --follow-tags origin master && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:He110te4m/utils.git"
+  },
+  "keywords": [],
+  "author": "he110te4m",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/He110te4m/utils/issues"
+  },
+  "homepage": "https://github.com/He110te4m/utils#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.5.0",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4"
+  }
+}
