@@ -1,6 +1,6 @@
 {
   "name": "@he110/utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "exports": {
     "./typeof": {
@@ -23,9 +23,9 @@
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:eslint-fix": "eslint . --fix",
-    "release-major": "standard-version --release-as major && git push --follow-tags origin master && npm publish",
-    "release-minor": "standard-version --release-as minor && git push --follow-tags origin master && npm publish",
-    "release-patch": "standard-version --release-as patch && git push --follow-tags origin master && npm publish"
+    "release-major": "standard-version --release-as major && git push --follow-tags origin master && npm publish --access public",
+    "release-minor": "standard-version --release-as minor && git push --follow-tags origin master && npm publish --access public",
+    "release-patch": "standard-version --release-as patch && git push --follow-tags origin master && npm publish --access public"
   },
   "repository": {
     "type": "git",
