@@ -37,9 +37,13 @@
   },
   "homepage": "https://github.com/He110te4m/utils#readme",
   "devDependencies": {
+    "@antfu/eslint-config": "^0.34.1",
+    "@vitest/coverage-c8": "^0.27.1",
+    "eslint": "^8.32.0",
     "rimraf": "^3.0.2",
     "standard-version": "^9.5.0",
     "typescript": "^4.9.4",
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "vitest": "^0.27.1"
   }
 }
