@@ -1,6 +1,6 @@
-import { Eq as EqString } from 'fp-ts/lib/string'
-import { Eq as EqNumber } from 'fp-ts/lib/number'
-import { Eq as EqBoolean } from 'fp-ts/lib/boolean'
+import { Eq as EqString } from 'fp-ts/string'
+import { Eq as EqNumber } from 'fp-ts/number'
+import { Eq as EqBoolean } from 'fp-ts/boolean'
 import { isBoolean, isNumber, isString } from '@he110/utils/typeof'
 
 export const includesString = (keyword: string) => (text: string) => text.includes(keyword)

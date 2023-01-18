@@ -16,11 +16,25 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "NodeNext",
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist",
+    "types": [
+      "vitest",
+      "vite/client"
+    ],
     "paths": {
-      "@he110/utils/*": ["./src/*"]
+      "fp-ts/*": [ "node_modules/fp-ts/es6/*" ],
+      "@he110/utils/*": ["src/*"]
     },
   },
   "include": [
-    "./src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverages"
   ]
 }

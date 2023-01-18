@@ -41,7 +41,7 @@ export default defineConfig(({ mode }) => {
     build: {
       emptyOutDir: false,
       outDir: 'dist',
-      sourcemap: true,
+      sourcemap: false,
       lib: {
         formats: ['cjs', 'es'],
         entry: getEntries(),
@@ -54,6 +54,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     test: {
+      include: ['src/**/*.test.ts'],
       coverage: {
         provider: 'c8',
         reporter: ['json', 'html'],
