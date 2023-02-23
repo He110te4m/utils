@@ -16,10 +16,8 @@
   "scripts": {
     "prepare": "npm run build",
     "clean:dist": "rimraf libs",
-    "clean:coverage": "rimraf coverages",
     "build:lib": "tsup",
     "build": "npm run clean:dist && npm run build:lib",
-    "test": "npm run clean:coverages && vitest --coverage --mode test",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:eslint-fix": "eslint . --fix",
