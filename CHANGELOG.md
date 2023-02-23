@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/He110te4m/utils/compare/v0.2.0...v0.3.0) (2023-02-23)
+
+
+### Features
+
+* change build tools ([fc47398](https://github.com/He110te4m/utils/commit/fc47398261433bd2ea28b0312b2e10349d1785a3))
+* update script ([e8809aa](https://github.com/He110te4m/utils/commit/e8809aa46b89482aed233a3dbea1cabbb5273597))
+
 ## 0.2.0 (2023-01-18)
 
 
