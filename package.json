@@ -4,13 +4,10 @@
   "description": "",
   "type": "module",
   "exports": {
-    "./typeof": {
-      "import": "./dist/typeof.js",
-      "require": "./dist/typeof.cjs"
-    },
-    "./fp": {
-      "import": "./dist/fp.js",
-      "require": "./dist/fp.cjs"
+    "./*": {
+      "import": "./libs/*.mjs",
+      "require": "./libs/*.cjs",
+      "types": "./libs/*.d.ts"
     }
   },
   "files": [
@@ -18,9 +15,9 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "clean:dist": "rimraf dist",
+    "clean:dist": "rimraf libs",
     "clean:coverage": "rimraf coverages",
-    "build:lib": "vite build --mode prod",
+    "build:lib": "tsup",
     "build": "npm run clean:dist && npm run build:lib",
     "test": "npm run clean:coverages && vitest --coverage --mode test",
     "lint": "npm run lint:eslint",
@@ -42,16 +39,14 @@
   },
   "homepage": "https://github.com/He110te4m/utils#readme",
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.1",
-    "@vitest/coverage-c8": "^0.27.1",
-    "eslint": "^8.32.0",
-    "rimraf": "^3.0.2",
+    "@antfu/eslint-config": "^0.35.2",
+    "@types/glob": "^8.1.0",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "rimraf": "^4.1.2",
     "standard-version": "^9.5.0",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.4",
-    "vite-plugin-chunk-split": "^0.4.7",
-    "vite-plugin-dts": "^1.7.1",
-    "vitest": "^0.27.1"
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
   },
   "dependencies": {
     "fp-ts": "^2.13.1"
