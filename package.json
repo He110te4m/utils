@@ -1,6 +1,6 @@
 {
   "name": "@he110/utils",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "",
   "type": "module",
   "exports": {
@@ -11,7 +11,7 @@
     }
   },
   "files": [
-    "dist"
+    "libs"
   ],
   "scripts": {
     "prepare": "npm run build",
