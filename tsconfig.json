@@ -19,9 +19,6 @@
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "libs",
-    "paths": {
-      "@he110/utils/*": ["src/*"]
-    },
   },
   "include": [
     "src/**/*.ts",

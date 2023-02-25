@@ -1,9 +1,10 @@
-import { defineConfig, type Format } from 'tsup'
+import { defineConfig } from 'tsup'
 import glob from 'glob'
+import { getExtensionByFormat } from './src/file/ext'
 
 export default defineConfig(() => {
   return {
-    entry: glob.sync('src/*.ts'),
+    entry: glob.sync('src/*/index.ts').concat(glob.sync('src/index.ts')),
     format: ['esm', 'cjs'],
     minify: true,
     splitting: true,
@@ -17,32 +18,8 @@ export default defineConfig(() => {
     ],
     outExtension({ format }) {
       return {
-        js: getExt(format),
+        js: getExtensionByFormat(format),
       }
     },
   }
 })
-
-//#region create extension
-function getExt(format: Format) {
-  let ext = '.js'
-  switch (format) {
-    case 'cjs':
-      ext = '.cjs'
-      break;
-
-    case 'esm':
-      ext = '.mjs'
-      break;
-
-    case 'iife':
-      ext = '.global.js'
-      break;
-
-    default:
-      break;
-  }
-
-  return ext
-}
-//#endregion

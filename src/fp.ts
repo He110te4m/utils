@@ -1,5 +1,0 @@
-export * from './fp/debug'
-export * from './fp/either'
-export * from './fp/equal'
-export * from './fp/logic'
-export * from './fp/record'

@@ -3,11 +3,19 @@
   "version": "0.3.3",
   "description": "",
   "type": "module",
+  "import": "./libs/index.mjs",
+  "require": "./libs/index.cjs",
+  "types": "./libs/index.d.ts",
   "exports": {
+    ".": {
+      "import": "./libs/index.mjs",
+      "require": "./libs/index.cjs",
+      "types": "./libs/index.d.ts"
+    },
     "./*": {
-      "import": "./libs/*.mjs",
-      "require": "./libs/*.cjs",
-      "types": "./libs/*.d.ts"
+      "import": "./*.mjs",
+      "require": "./*.cjs",
+      "types": "./*.d.ts"
     }
   },
   "files": [
